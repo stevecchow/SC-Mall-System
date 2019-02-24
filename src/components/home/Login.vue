@@ -10,7 +10,7 @@
             </div>
             <form id='login-form' class="mui-input-group">
                 <div class="mui-input-row">
-                    <label>账号</label>
+                    <label>邮箱</label>
                     <input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
                 </div>
                 <div class="mui-input-row">
@@ -148,13 +148,17 @@
 
     .mui-btn-blue, .mui-btn-primary, input[type=submit] {
         color: #fff;
-        border: 1px solid #333;
-        background-color: #333;
+        border: 1px solid #f37d0f;
+        background-color: #f37d0f;
     }
 
     .link-area {
         a {
             color: #333;
         }
+    }
+
+    input {
+        background: rgb(0,0,0,0);
     }
 </style>

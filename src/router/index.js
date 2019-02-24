@@ -11,6 +11,7 @@ import Cart from '@/components/home/Cart'
 import Me from '@/components/home/Me'
 import Login from '@/components/home/Login'
 import Regist from '@/components/home/Regist'
+import Coding from '@/components/home/Coding'
 import Test from '@/components/home/Test'
 
 Vue.use(Router)
@@ -33,6 +34,7 @@ export default new Router({
         {path:'/me',component: Me},
         {path:'/login',component: Login},
         {path:'/regist',component: Regist},
+        {path:'/coding',component: Coding},
         {path:'/test',component: Test},
     ],
     // linkActiveClass: 'my-active'
