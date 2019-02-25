@@ -1,71 +1,13 @@
 <template>
     <div>
         <ul class="mui-table-view mui-grid-view">
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
+            <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="(item,i) in goodsList" :key="i">
                 <a href="http://localhost:8080/#/good">
-                    <img class="mui-media-object" src="../../assets/good.png">
-                    <div class="info">
-                        <div class="name">小米8 青春版</div>
-                        <div class="brief">潮流镜面渐变色，自拍旗舰</div>
-                        <div class="price">￥1299<span>起</span>
-                            <span class="old">￥<s>1399</s></span>
-                        </div>
+                    <div class="box">
+                        <img class="mui-media-object" :src="item.img_banner">
                     </div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-                <a href="http://localhost:8080/#/good">
-                    <img class="mui-media-object" src="../../assets/good.png">
                     <div class="info">
-                        <div class="name">小米8 青春版</div>
-                        <div class="brief">潮流镜面渐变色，自拍旗舰</div>
-                        <div class="price">￥1299<span>起</span>
-                            <span class="old">￥<s>1399</s></span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-                <a href="http://localhost:8080/#/good">
-                    <img class="mui-media-object" src="../../assets/good.png">
-                    <div class="info">
-                        <div class="name">小米8 青春版</div>
-                        <div class="brief">潮流镜面渐变色，自拍旗舰</div>
-                        <div class="price">￥1299<span>起</span>
-                            <span class="old">￥<s>1399</s></span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-                <a href="http://localhost:8080/#/good">
-                    <img class="mui-media-object" src="../../assets/good.png">
-                    <div class="info">
-                        <div class="name">小米8 青春版</div>
-                        <div class="brief">潮流镜面渐变色，自拍旗舰</div>
-                        <div class="price">￥1299<span>起</span>
-                            <span class="old">￥<s>1399</s></span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-                <a href="http://localhost:8080/#/good">
-                    <img class="mui-media-object" src="../../assets/good.png">
-                    <div class="info">
-                        <div class="name">小米8 青春版</div>
-                        <div class="brief">潮流镜面渐变色，自拍旗舰</div>
-                        <div class="price">￥1299<span>起</span>
-                            <span class="old">￥<s>1399</s></span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-6">
-                <a href="http://localhost:8080/#/good">
-                    <img class="mui-media-object" src="../../assets/good.png">
-                    <div class="info">
-                        <div class="name">小米8 青春版</div>
+                        <div class="name">{{item.name}}</div>
                         <div class="brief">潮流镜面渐变色，自拍旗舰</div>
                         <div class="price">￥1299<span>起</span>
                             <span class="old">￥<s>1399</s></span>
@@ -78,11 +20,54 @@
 </template>
 
 <script>
+    import {Toast} from 'mint-ui'
+
     export default {
         data() {
-            return {}
+            return {
+                goodsList: []
+            }
         },
-        methods: {},
+        methods: {
+            getGoodsList(path) {
+                console.log(path)
+                if (path != 0) {
+                    this.$http.get("api/getTypeAll/" + path).then(result => {
+                        if (result.body.status === 1) {
+                            this.goodsList = result.body.message
+                            console.log(this.goodsList)
+                        } else {
+                            Toast('获取商品列表失败')
+                        }
+                    })
+                } else {
+                    this.$http.get("api/getRecom").then(result => {
+                        if (result.body.status === 1) {
+                            this.goodsList = result.body.message
+                            console.log(this.goodsList)
+                        } else {
+                            Toast('获取商品列表失败')
+                        }
+                    })
+                }
+            }
+        },
+        mounted() {
+            this.$http.get("api/getRecom").then(result => {
+                if (result.body.status === 1) {
+                    this.goodsList = result.body.message
+                    console.log(this.goodsList)
+                } else {
+                    Toast('获取商品列表失败')
+                }
+            })
+        },
+        watch: {
+            // 通过 watch，可以很方便地监视到 this.$route.path（路由地址） 的改变
+            '$route.params': function (newVal, oldVal) {
+                this.getGoodsList(newVal.id)
+            }
+        }
     }
 </script>
 
@@ -116,5 +101,14 @@
 
     .mui-table-view:after {
         background-color: #fff;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 3.5rem;
+        background: red;
+        overflow: hidden;
     }
 </style>

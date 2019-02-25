@@ -6,8 +6,16 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-import '../src/lib/flexible.min.js'
+// 导入 vue-resource
+import VueResource from 'vue-resource'
+// 安装 vue-resource
+Vue.use(VueResource)
+// 设置请求的根路径
+Vue.http.options.root = 'http://localhost:3000/';
+// 全局设置 post 时候表单数据格式组织形式   application/x-www-form-urlencoded
+Vue.http.options.emulateJSON = true;
 
+import '../src/lib/flexible.min.js'
 // 按需导入 mint-ui
 import {Swipe, SwipeItem, Tabbar, TabItem, Popup} from 'mint-ui';
 // 加载 mint-ui

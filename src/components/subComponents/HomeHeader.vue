@@ -6,10 +6,10 @@
                     <img src="../../assets/logo.png" alt="">
                 </div>
                 <!--搜索框部分-->
-                <div class="search">
+                <router-link tag="div" to="/coding" class="search">
                     <i class="icon-search"></i>
                     搜索商品
-                </div>
+                </router-link>
                 <div class="me">
                     <router-link tag="span" class="mui-icon mui-icon-contact" id="me" to="/me"></router-link>
                 </div>
@@ -19,21 +19,12 @@
                     <div id="sliderSegmentedControl"
                          class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                         <div class="mui-scroll">
-                            <router-link class="mui-control-item mui-active" to="/recom">
+                            <div class="mui-control-item mui-active" @click="toLink('normal/0')">
                                 推荐
-                            </router-link>
-                            <router-link class="mui-control-item" to="/normal">
-                                手机
-                            </router-link>
-                            <router-link class="mui-control-item" to="/normal">
-                                电脑
-                            </router-link>
-                            <router-link class="mui-control-item" to="/normal">
-                                生活
-                            </router-link>
-                            <router-link class="mui-control-item" to="/normal">
-                                智能
-                            </router-link>
+                            </div>
+                            <div class="mui-control-item" v-for="(item,i) in typeList" :key="i" @click="toLink('normal/'+item.type_id)">
+                                {{item.type}}
+                            </div>
                         </div>
                     </div>
 
@@ -44,12 +35,37 @@
 </template>
 
 <script>
+    import {Toast} from 'mint-ui';
+
     console.log('GoodList')
     export default {
         data() {
-            return {}
+            return {
+                goodsList: [],
+                typeList: [],
+                path:''
+            }
         },
-        methods: {},
+        methods: {
+            // 获取所有分类
+            getTypes() {
+                this.$http.get("api/types").then(result => {
+                    if (result.body.status === 1) {
+                        this.typeList = result.body.message
+                        console.log(this.typeList)
+                    } else {
+                        Toast('获取types列表失败')
+                    }
+                })
+            },
+            toLink(where){
+                location.href = 'http://localhost:8080/#/'+where
+                this.path = where
+            }
+        },
+        mounted() {
+            this.getTypes()
+        }
     }
 </script>
 
@@ -125,7 +141,7 @@
         }
 
         .nav {
-            height: 1.05rem;
+            height: 1.4rem;
 
             .mui-active {
                 color: #ff6500;

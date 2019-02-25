@@ -6,20 +6,20 @@
 </template>
 
 <script>
-    // 引入 swipe 组件
-    import swipe from '../../subComponents/Swipe'
-    import goodslist from '../../subComponents/GoodsList'
-    console.log('Recom')
+    import swipe from '../subComponents/Swipe'
+    import goodslist from '../subComponents/GoodsList'
+
+    console.log('Normal')
 
     export default {
         data() {
             return {}
         },
         methods: {},
-        components:{
+        components: {
             swipe,
             goodslist
-        }
+        },
     }
 </script>
 

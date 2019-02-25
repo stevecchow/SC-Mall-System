@@ -22,7 +22,9 @@
 
     export default {
         data() {
-            return {}
+            return {
+                type_id:0,
+            }
         },
         methods: {},
         mounted() {
@@ -43,7 +45,7 @@
     }
 
     .content {
-        margin-top: 2.2rem;
+        margin-top: 2.6rem;
         margin-bottom: 1.2rem;
     }
 </style>
