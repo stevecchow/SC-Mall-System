@@ -25,7 +25,7 @@ export default new Router({
                 {path: 'normal/:id', component: Normal},
             ]
         },
-        {path: '/good', component: Good},
+        {path: '/good/:id', component: Good},
         {path: '/category', component: Category},
         {path: '/cart', component: Cart},
         {path: '/me', component: Me},

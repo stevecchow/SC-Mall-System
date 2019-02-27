@@ -3,31 +3,27 @@
         <a id="back" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
         <swipe></swipe>
         <div class="detail">
-            <div class="pro_name">小米8 青春版</div>
-            <div class="brief">潮流镜面渐变色 / 2400万自拍旗舰 / 7.5mm超薄机身 / 6.26"小刘海全面屏 / AI裸妆美颜 / 骁龙660AIE处理器</div>
+            <div class="pro_name">{{good.name}}</div>
+            <div class="brief">
+                <span v-for="(item,i) in good.functions" :key="i">
+                    {{'/'+item}}
+                </span>
+            </div>
             <div class="price">
-                ￥1499
-                <div class="old">￥<s>1699</s></div>
+                ￥{{price.now_price}}
+                <div class="old">￥<s>{{price.old_price}}</s></div>
             </div>
             <div class="tag">
                 <div class="box">
                     <div class="product-section">
                         <div class="title">已选</div>
-                        <div class="select" @click="actionSheet">小米8 青春版 6GB+64GB 梦幻蓝 x 1</div>
+                        <div class="select" @click="actionSheet">{{good.name}} 青春版 6GB+64GB 梦幻蓝 x 1</div>
                         >
                     </div>
                     <div class="service">
-                        <div class="title">
+                        <div class="title" v-for="(item,i) in good.service">
                             <img src="../../assets/v.png" alt="">
-                            小米自营
-                        </div>
-                        <div class="title">
-                            <img src="../../assets/v.png" alt="">
-                            7天无理由退货
-                        </div>
-                        <div class="title">
-                            <img src="../../assets/v.png" alt="">
-                            保修3年
+                            {{item}}
                         </div>
                     </div>
                 </div>
@@ -37,11 +33,7 @@
             </div>
             <div class="des">
                 <div class="img">
-                    <img src="../../assets/des/1.png" alt="">
-                    <img src="../../assets/des/2.png" alt="">
-                    <img src="../../assets/des/3.png" alt="">
-                    <img src="../../assets/des/4.png" alt="">
-                    <img src="../../assets/des/5.png" alt="">
+                    <img :src="item" alt="" v-for="(item,i) in good.img_content">
                 </div>
             </div>
         </div>
@@ -131,10 +123,9 @@
 <script>
     // 导入 自定义 组件
     import swipe from './Swipe'
+    // import goodSwipe from './goodSwipe'
     import CommentList from './CommentList'
-
-    // 测试组件执行顺序
-    console.log('Good')
+    import {Toast} from 'mint-ui'
 
     // 导入 mui.js
     import mui from '../../lib/mui/js/mui.min.js'
@@ -142,23 +133,39 @@
     export default {
         data() {
             return {
-                popupVisible: false
+                popupVisible: false,
+                id: '',
+                good: {},
+                price:{}
             }
         },
         methods: {
             actionSheet: function () {
                 // 打开action sheet
                 this.popupVisible = true;
+            },
+            getGood(id) {
+                this.$http.get("api/good/" + id).then(result => {
+                    if (result.body.status === 1) {
+                        this.good = result.body.message[0]
+                        this.price.old_price = this.good.versions[0].old_price
+                        this.price.now_price = this.good.versions[0].now_price
+                        // console.log(this.good)
+                    } else {
+                        Toast('获取商品信息失败')
+                    }
+                })
             }
         },
         components: {
             swipe,
-            CommentList
+            CommentList,
         },
         mounted() {
             mui(".mui-scroll-wrapper").scroll({
                 deceleration: 0.0005
             });
+            this.getGood(this.$route.params.id)
         }
     }
 </script>

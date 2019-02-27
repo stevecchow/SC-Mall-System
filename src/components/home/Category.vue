@@ -19,18 +19,19 @@
 </template>
 
 <script>
+    import {Toast} from 'mint-ui'
     import bottomBar from './BottomBar'
     import mui from '../../lib/mui/js/mui.min.js'
-
-    var str = 'Category.js'
-    console.log(str)
 
     // 这里的样式是组件最先载入的
     // import '../../lib/mui/css/category.css'
 
     export default {
         data() {
-            return {}
+            return {
+                types: [],
+                allGoods: []
+            }
         },
         methods: {
             start() {
@@ -47,11 +48,16 @@
                 // for (; i < m; i++) {
                 //     html.push('<a class="mui-control-item" data-index="' + (i - 1) + '" href="#content' + i + '">选项' + i + '</a>');
                 // }
-                html.push('<a class="mui-control-item" data-index="0">推荐</a>');
-                html.push('<a class="mui-control-item" data-index="1">手机</a>');
-                html.push('<a class="mui-control-item" data-index="2">电脑</a>');
-                html.push('<a class="mui-control-item" data-index="3">生活</a>');
-                html.push('<a class="mui-control-item" data-index="4">智能</a>');
+                // html.push('<a class="mui-control-item" data-index="0">推荐</a>');
+                // html.push('<a class="mui-control-item" data-index="1">手机</a>');
+                // html.push('<a class="mui-control-item" data-index="2">电脑</a>');
+                // html.push('<a class="mui-control-item" data-index="3">生活</a>');
+                // html.push('<a class="mui-control-item" data-index="4">智能</a>');
+               console.dir(this.types)
+                for (var i = 0; i < 5; i++) {
+                    // console.log(this.types)
+                    html.push('<a class="mui-control-item" data-index="' + i + '">' + 1 + '</a>');
+                }
                 controls.innerHTML = html.join('');
                 html = [];
                 for (i = 1; i < m; i++) {
@@ -154,6 +160,27 @@
                         return false;
                     });
                 })();
+            },
+            getTypes() {
+                this.$http.get('api/types').then(result => {
+                    if (result.body.status === 1) {
+                        var arr = result.body.message
+                        for(var i in arr){
+                            this.types.push(arr[i].type)
+                        }
+                    } else {
+                        Toast('获取商品信息失败')
+                    }
+                })
+            },
+            getAllGoods() {
+                this.$http.get('api/allGoods').then(result => {
+                    if (result.body.status === 1) {
+                        this.allGoods = result.body.message
+                    } else {
+                        Toast('获取商品列表失败')
+                    }
+                })
             }
         },
         components: {
@@ -161,6 +188,10 @@
         },
         mounted() {
             this.start()
+        },
+        created() {
+            this.getTypes()
+            this.getAllGoods()
         }
     }
 </script>

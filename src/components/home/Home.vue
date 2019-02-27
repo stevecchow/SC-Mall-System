@@ -45,7 +45,7 @@
     }
 
     .content {
-        margin-top: 2.6rem;
+        margin-top: 2.5rem;
         margin-bottom: 1.2rem;
     }
 </style>

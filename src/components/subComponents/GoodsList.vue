@@ -2,18 +2,18 @@
     <div>
         <ul class="mui-table-view mui-grid-view">
             <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="(item,i) in goodsList" :key="i">
-                <a href="http://localhost:8080/#/good">
+                <router-link :to="'/good/'+item._id">
                     <div class="box">
                         <img class="mui-media-object" :src="item.img_banner">
                     </div>
                     <div class="info">
                         <div class="name">{{item.name}}</div>
-                        <div class="brief">潮流镜面渐变色，自拍旗舰</div>
-                        <div class="price">￥1299<span>起</span>
-                            <span class="old">￥<s>1399</s></span>
+                        <div class="brief">{{item.slog}}</div>
+                        <div class="price">￥{{item.versions[0].now_price}}<span>起</span>
+                            <span class="old">￥<s>{{item.versions[0].old_price}}</s></span>
                         </div>
                     </div>
-                </a>
+                </router-link>
             </li>
         </ul>
     </div>
@@ -87,6 +87,7 @@
             white-space: nowrap;
             overflow: hidden;
             width: 90%;
+            color: #c3c3c3;
         }
 
         .price {
