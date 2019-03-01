@@ -13,13 +13,13 @@
 	<br>
 </div>
 
-## Project Name
+## Project Name/项目名
 
-`mallSystem`
+`mallSystem/商城系统`
 
 
 
-## Screen Shot
+## Screen Shot/项目截图
 
 <div align="center">
 	<img width="700" height="717" src="./static/shots.jpg" alt="Stevechow">
@@ -27,7 +27,7 @@
 
 
 
-## Build Setup
+## Build Setup/项目构建
 
 ```bash
 # install dependencies
@@ -144,7 +144,7 @@ npm run start
 
 
 
-## License
+## License/许可证
 
 MIT
 
