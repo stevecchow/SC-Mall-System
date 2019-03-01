@@ -22,7 +22,7 @@
 
 ## Screen Shot
 
-![shots](/Users/stevechow/Desktop/商城CMS/fronter/static/shots.jpg)
+![shot](/Users/stevechow/Desktop/商城CMS/fronter/static/shot.jpg)
 
 
 
