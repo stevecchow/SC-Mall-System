@@ -32,8 +32,9 @@ This program is only for study and communication. If you need commercial use, pl
 ## Screen Shot 项目截图
 
 <div align="center">
-	<img width="700" height="717" src="./static/shots.jpg" alt="Stevechow">
+	<img width='90%' src="./static/shots.jpg" alt="Stevechow">
 </div>
+
 
 
 
