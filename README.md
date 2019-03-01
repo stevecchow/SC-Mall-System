@@ -14,15 +14,6 @@
 </div>
 
 
-
-## Warning 敬告
-
-This program is only for study and communication. If you need commercial use, please contact me for authorization
-
-该项目只供大家学习交流使用，如需商用，请找本人授权。
-
-
-
 ## Project Name 项目名
 
 `mallSystem 商城系统`
