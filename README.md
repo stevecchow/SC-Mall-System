@@ -14,19 +14,19 @@
 </div>
 
 
-## Project Name 项目名
+## Project Name
 
 `mallSystem 商城系统`
 
 
 
-## Screen Shot 项目截图
+## Screen Shot
 
 ![shots](/Users/stevechow/Desktop/商城CMS/fronter/static/shots.jpg)
 
 
 
-## Build Setup 项目构建
+## Build Setup
 
 ```bash
 # install dependencies
@@ -143,7 +143,7 @@ npm run start
 
 
 
-## License 许可证
+## License
 
 MIT
 
