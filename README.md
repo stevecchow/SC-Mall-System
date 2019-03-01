@@ -1,21 +1,45 @@
-# mallSystem
+<div align="center">
+	<img width="300" height="300" src="./static/logo.png" alt="Stevechow">
+	<br>
+	<br>
+	<p>
+		<sup>If you wanna know more about me, plase to my homepage</sup>
+		<br>
+		<a href="https://stevecchow.github.io/homepage/">
+			<img src="./static/btn.png" width="160">
+		</a>
+	</p>
+	<br>
+	<br>
+</div>
 
-> A Vue.js project
+## Project Name
+
+`mallSystem`
+
+
+
+## Screen Shot
+
+<div align="center">
+	<img width="800" height="820" src="./static/shots.jpg" alt="Stevechow">
+</div>
+
+
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## License
+
+MIT
+

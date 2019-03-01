@@ -11,7 +11,7 @@
                                 </div>
                                 <div class="user-info">
                                     <div class="name">steve</div>
-                                    <div class="date">2019-02-19</div>
+                                    <div class="date">2019-02-25</div>
                                 </div>
                             </div>
                             <div class="text">
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="user-info">
                                     <div class="name">steve</div>
-                                    <div class="date">2019-02-19</div>
+                                    <div class="date">2019-02-25</div>
                                 </div>
                             </div>
                             <div class="text">
