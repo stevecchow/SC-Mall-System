@@ -22,10 +22,7 @@
 
 ## Screen Shot 项目截图
 
-<div align="center">
-	<img width='90%' src="./static/shots.jpg" alt="Stevechow">
-</div>
-
+![shots](/Users/stevechow/Desktop/商城CMS/fronter/static/shots.jpg)
 
 
 

@@ -53,6 +53,7 @@
         watch: {
             // 通过 watch，可以很方便地监视到 this.$route.path（路由地址） 的改变
             '$route.params': function (newVal, oldVal) {
+                console.log('---'+newVal.id)
                 this.getWipes(newVal.id)
             }
         },
