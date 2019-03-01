@@ -54,9 +54,9 @@ npm run start
 
 ```javascript
 {
-  "name": "fronter",
+  "name": "SCMallSystem",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "vue mall cms：vue + mint-ui + mui",
   "author": "stevechow <290689305@qq.com>",
   "private": true,
   "scripts": {
