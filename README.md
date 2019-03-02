@@ -43,7 +43,7 @@ npm run start
 ```javascript
 {
   "name": "SCMallSystem",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "vue mall cms：vue + mint-ui + mui",
   "author": "stevechow <290689305@qq.com>",
   "private": true,
