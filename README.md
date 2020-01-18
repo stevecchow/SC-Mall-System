@@ -4,12 +4,12 @@
   </a>
 	<br>
 	<br>
-	<p>
+	<!-- <p>
   <a href="https://stevecchow.github.io/homepage/">
 		<sup>If you wanna know more about me, plase clik to my homepage</sup>
     </a>
 		<br>
-	</p>
+	</p> -->
 	<br>
 	<br>
 </div>
