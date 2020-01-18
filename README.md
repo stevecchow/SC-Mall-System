@@ -1,31 +1,26 @@
 <div align="center">
+<a href="https://stevecchow.github.io/homepage/">
 	<img height="150" src="./static/logo.png" alt="Stevechow">
+  </a>
 	<br>
 	<br>
 	<p>
-		<sup>If you wanna know more about me, plase to my homepage</sup>
+  <a href="https://stevecchow.github.io/homepage/">
+		<sup>If you wanna know more about me, plase clik to my homepage</sup>
+    </a>
 		<br>
-		<a href="https://stevecchow.github.io/homepage/">
-			<img src="./static/btn.png" width="160">
-		</a>
 	</p>
 	<br>
 	<br>
 </div>
 
-
-
 ## Project Name
 
 `mallSystem 商城系统`
 
-
-
 ## Screen Shot
 
 ![shot](./static/shot.jpg)
-
-
 
 ## Build Setup
 
@@ -36,8 +31,6 @@ npm install
 # serve with hot reload at localhost:8080(开启项目)
 npm run start
 ```
-
-
 
 ## package.json
 
@@ -112,8 +105,6 @@ npm run start
 }
 ```
 
-
-
 ## .babelrc
 
 ```javascript
@@ -142,9 +133,6 @@ npm run start
 }
 ```
 
-
-
 ## License
 
 MIT
-
